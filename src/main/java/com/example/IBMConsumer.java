@@ -19,9 +19,9 @@ import com.ibm.mq.MQGetMessageOptions;
  */
 public class IBMConsumer {
 
-    private static final String QMGR_SEFAZ = "QMSEFAZ";
-    private static final String CHANNEL_SEFAZ = "ADMIN.CHL";
-    private static final String CONN_NAME_SEFAZ = "localhost(1414)";
+    private static final String QMGR_SERPRO = "QMSERPRO";
+    private static final String CHANNEL_SERPRO = "ADMIN.CHL";
+    private static final String CONN_NAME_SERPRO = "localhost(1515)";
     private static final String QUEUE_NAME = "FILA1";
 
     public static void main(String[] args) {
@@ -30,12 +30,12 @@ public class IBMConsumer {
 
         try {
             // Configuração do ambiente MQ
-            com.ibm.mq.MQEnvironment.hostname = CONN_NAME_SEFAZ.split("\\(")[0];
-            com.ibm.mq.MQEnvironment.channel = CHANNEL_SEFAZ;
-            com.ibm.mq.MQEnvironment.port = Integer.parseInt(CONN_NAME_SEFAZ.split("\\(")[1].replace(")", ""));
+            com.ibm.mq.MQEnvironment.hostname = CONN_NAME_SERPRO.split("\\(")[0];
+            com.ibm.mq.MQEnvironment.channel = CHANNEL_SERPRO;
+            com.ibm.mq.MQEnvironment.port = Integer.parseInt(CONN_NAME_SERPRO.split("\\(")[1].replace(")", ""));
 
             // Conexão ao Gerenciador de Filas
-            queueManager = new MQQueueManager(QMGR_SEFAZ);
+            queueManager = new MQQueueManager(QMGR_SERPRO);
 
             // Acesso à fila
             int openOptions = CMQC.MQOO_INPUT_AS_Q_DEF | CMQC.MQOO_FAIL_IF_QUIESCING;
